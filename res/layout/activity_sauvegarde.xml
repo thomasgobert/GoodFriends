@@ -1,0 +1,84 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".SauvegardeActivity" >
+
+    <TextView
+        android:id="@+id/tvTitre"
+        style="@style/Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5dp"
+        android:textIsSelectable="false" />
+
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvTitre"
+        android:layout_alignBottom="@+id/tvTitre"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/tvTitre"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/tvTitre"
+        android:text="@string/activity_sauvegarde_tvTotal"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/edtParticipant"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitre"
+        android:layout_marginTop="24dp"
+        android:layout_toLeftOf="@+id/edtSomme"
+        android:background="@drawable/edit_text"
+        android:hint="@string/activity_sauvegarde_edtParticipant"
+        android:imeOptions="actionNext"
+        android:inputType="textCapWords"
+        android:nextFocusRight="@+id/edtSomme" >
+    </EditText>
+
+    <EditText
+        android:id="@+id/edtSomme"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/edtParticipant"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/edtParticipant"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/edit_text"
+        android:hint="@string/activity_sauvegarde_edtSomme"
+        android:imeOptions="actionNext"
+        android:inputType="numberDecimal"
+        android:nextFocusDown="@+id/edtDesc" />
+
+    <EditText
+        android:id="@+id/edtDesc"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtParticipant"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edit_text"
+        android:hint="@string/activity_sauvegarde_edtDesc"
+        android:imeOptions="actionDone"
+        android:inputType="textCapWords" >
+    </EditText>
+
+    <ExpandableListView
+        android:id="@+id/lvParticipants"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/edtDesc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:indicatorLeft="0dp"
+        android:listSelector="@drawable/listview_item_selector" >
+    </ExpandableListView>
+
+</RelativeLayout>

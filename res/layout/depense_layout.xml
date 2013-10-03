@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:id="@+id/tvSomme"
+        style="@style/Small"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35sp"
+        android:gravity="right"
+        android:hint="@string/layout_depense_hint_tvSomme"
+        android:padding="5dp"
+        android:textIsSelectable="false" />
+
+    <TextView
+        android:id="@+id/tvDesc"
+        style="@style/Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_toLeftOf="@+id/tvFlag"
+        android:layout_toRightOf="@+id/tvSomme"
+        android:padding="5dp"
+        android:textIsSelectable="false" />
+
+    <TextView
+        android:id="@+id/tvFlag"
+        style="@style/Small"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="15dp"
+        android:gravity="right"
+        android:hint="@string/layout_depense_hint_tvFlag"
+        android:padding="5dp"
+        android:textIsSelectable="false" />
+
+</RelativeLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/lyTitre"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3" >
+
+        <TextView
+            android:id="@+id/tvLibelle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:layout_weight="2"
+            android:background="#508e46ac"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Sauvegarde"
+            android:textIsSelectable="false" />
+
+        <TextView
+            android:id="@+id/tvSommeSauvegarde"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:layout_weight="1"
+            android:background="#50000000"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="0,0 €"
+            android:textIsSelectable="false" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lyTitre"
+        android:layout_margin="0dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <TextView
+            android:id="@+id/tvDateCreation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:layout_weight="1"
+            android:background="#258e46ac"
+            android:gravity="center"
+            android:text="Date création" />
+
+        <TextView
+            android:id="@+id/tvNbParticipants"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:layout_weight="1"
+            android:background="#25000000"
+            android:gravity="right"
+            android:text="1"
+            android:textIsSelectable="false" />
+    </LinearLayout>
+
+</RelativeLayout>
