@@ -35,4 +35,7 @@
     <delete dir="${build}"/>
     <delete dir="${dist}"/>
   </target>
+  
+  <target name="test" description="Test de l'application GoodFriends">
+  </target>
 </project>
