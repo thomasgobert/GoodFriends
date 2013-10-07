@@ -46,6 +46,13 @@ public class Sauvegarde {
 		return participants;
 	}
 
+	public List<String> getNoms() {
+		List<String> results = new ArrayList<String>();
+		for (int i = 0; i < participants.size(); i++)
+			results.add(participants.get(i).getNom());
+		return results;
+	}
+
 	public void ajouterParticipant(Participant p) {
 		boolean inserted = false;
 		for (int i = 0; i < participants.size(); i++) {

@@ -27,19 +27,20 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int border=0x7f020000;
-        public static final int bt_participants=0x7f020001;
-        public static final int bt_sauvegardes=0x7f020002;
-        public static final int bt_statistiques=0x7f020003;
-        public static final int edit_text=0x7f020004;
-        public static final int goodfriends=0x7f020005;
-        public static final int ic_launcher=0x7f020006;
-        public static final int listview_item=0x7f020007;
-        public static final int listview_item_pressed=0x7f020008;
-        public static final int listview_item_selector=0x7f020009;
-        public static final int sauvegarde=0x7f02000a;
-        public static final int textfield=0x7f02000b;
-        public static final int textfield_selected=0x7f02000c;
+        public static final int auto_complete=0x7f020000;
+        public static final int auto_complete_selector=0x7f020001;
+        public static final int border=0x7f020002;
+        public static final int bt_participants=0x7f020003;
+        public static final int bt_sauvegardes=0x7f020004;
+        public static final int bt_statistiques=0x7f020005;
+        public static final int edit_text=0x7f020006;
+        public static final int goodfriends=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
+        public static final int listview_item=0x7f020009;
+        public static final int listview_item_selector=0x7f02000a;
+        public static final int sauvegarde=0x7f02000b;
+        public static final int textfield=0x7f02000c;
+        public static final int textfield_selected=0x7f02000d;
     }
     public static final class id {
         public static final int action_settings=0x7f09001a;

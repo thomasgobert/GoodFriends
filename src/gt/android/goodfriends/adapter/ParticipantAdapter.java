@@ -36,6 +36,7 @@ public class ParticipantAdapter extends BaseExpandableListAdapter {
 	public void setParticipants(Context context, List<Participant> value) {
 		this.context = context;
 		participants = value;
+		notifyDataSetChanged();
 	}
 
 	public ParticipantAdapter(Context context, List<Participant> participants) {

@@ -13,8 +13,8 @@ import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.content.DialogInterface.OnClickListener;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -25,6 +25,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.ExpandableListContextMenuInfo;
@@ -35,6 +37,7 @@ public class SauvegardeActivity extends Activity {
 
 	private final String KEY_HELP = "help_at_first_time_activity_sauvegarde";
 	private ParticipantAdapter adapter;
+	private ArrayAdapter<String> autoCompleteAdapter;
 	private Sauvegarde sauvegarde;
 
 	@Override
@@ -43,6 +46,7 @@ public class SauvegardeActivity extends Activity {
 		setContentView(R.layout.activity_sauvegarde);
 		final ExpandableListView listview = (ExpandableListView) findViewById(R.id.lvParticipants);
 		final EditText edDesc = (EditText) findViewById(R.id.edtDesc);
+		final AutoCompleteTextView edParticipant = (AutoCompleteTextView) findViewById(R.id.edtParticipant);
 		sauvegarde = new Sauvegarde(this.getIntent().getExtras()
 				.get(SauvegardeEntry.KEY_SAUVEGARDE).toString());
 		((TextView) findViewById(R.id.tvTitre))
@@ -50,6 +54,8 @@ public class SauvegardeActivity extends Activity {
 		adapter = new ParticipantAdapter(this, new ArrayList<Participant>());
 		listview.setAdapter(adapter);
 		registerForContextMenu(listview);
+		autoCompleteAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, sauvegarde.getNoms());
+		edParticipant.setAdapter(autoCompleteAdapter);
 		edDesc.setOnEditorActionListener(new OnEditorActionListener() {
 
 			@Override
@@ -66,12 +72,15 @@ public class SauvegardeActivity extends Activity {
 						somme = Float.parseFloat(edtSomme.getText().toString());
 					final EditText edtDesc = (EditText) findViewById(R.id.edtDesc);
 					final String desc = edtDesc.getText().toString();
-					if (nom.length() == 0 || somme <= 0 || desc.length() == 0) {
+					if (nom.length() == 0) {
+						edParticipant.requestFocus();
 						break;
 					}
 					sauvegarde.ajouterDepense(v.getContext(), nom, somme, desc);
 					sauvegarde.repartirDettes();
 					adapter.notifyDataSetChanged();
+					autoCompleteAdapter.clear();
+					autoCompleteAdapter.addAll(sauvegarde.getNoms());
 					edtSomme.setText("");
 					edtSomme.requestFocus();
 					edtDesc.setText("");
@@ -122,7 +131,8 @@ public class SauvegardeActivity extends Activity {
 		sauvegarde.initialiseParticipants(this);
 		sauvegarde.repartirDettes();
 		adapter.setParticipants(this, sauvegarde.getParticipants());
-		adapter.notifyDataSetChanged();
+		autoCompleteAdapter.clear();
+		autoCompleteAdapter.addAll(sauvegarde.getNoms());
 		final float total = sauvegarde.getTotal();
 		final int nb = sauvegarde.getParticipants().size();
 		((TextView) findViewById(R.id.tvTotal)).setText(String.format(
@@ -193,10 +203,10 @@ public class SauvegardeActivity extends Activity {
 						childPosition);
 				sauvegarde.supprimerDepense(this, d);
 			}
-			// sauvegarde.initialiseParticipants(getApplicationContext());
 			sauvegarde.repartirDettes();
-			// adapter.setParticipants(this, sauvegarde.getParticipants());
 			adapter.notifyDataSetChanged();
+			autoCompleteAdapter.clear();
+			autoCompleteAdapter.addAll(sauvegarde.getNoms());
 		}
 		float nouvelleSomme = 0;
 		for (int i = 0; i < adapter.getParticipants().size(); i++)
